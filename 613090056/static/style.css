@@ -1,0 +1,151 @@
+/* 背景 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft JhengHei", Arial, sans-serif;
+    background: linear-gradient(to right, #b8e994, #78e08f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* 主卡片 */
+.container {
+    background: white;
+    width: 700px;
+    max-width: 90%;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+/* 標題 */
+h1 {
+    text-align: center;
+    color: #2d6a4f;
+}
+
+h2, h3 {
+    color: #2d6a4f;
+}
+
+/* 說明文字 */
+p {
+    text-align: center;
+    color: #555;
+}
+
+/* 表單 */
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    resize: none;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* 按鈕 */
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: #27ae60;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #219150;
+}
+
+/* 結果區 */
+.result {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f3fff5;
+    border-radius: 10px;
+    border: 2px solid #b7e4c7;
+}
+
+/* 分數 */
+.score {
+    text-align: center;
+    font-size: 42px;
+    font-weight: bold;
+    color: #27ae60;
+    margin: 15px 0;
+}
+
+/* 評價 */
+.level {
+    text-align: center;
+    font-size: 24px;
+    color: #f39c12;
+    margin-bottom: 20px;
+}
+
+/* 清單 */
+ul {
+    padding-left: 25px;
+}
+
+li {
+    margin: 8px 0;
+    font-size: 17px;
+}
+
+/* 建議 */
+.advice {
+    background: #eafaf1;
+    padding: 12px;
+    border-left: 5px solid #27ae60;
+    border-radius: 6px;
+    text-align: left;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 分隔線 */
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+/* 手機版 */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .score {
+        font-size: 32px;
+    }
+
+    .level {
+        font-size: 20px;
+    }
+
+    textarea {
+        font-size: 15px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}

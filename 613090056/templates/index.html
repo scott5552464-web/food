@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <title>每餐健康檢測</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- 背景音樂 -->
+    <audio autoplay loop>
+        <source src="{{ url_for('static', filename='music/bgm.mp3') }}" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+
+        <h1>🍽 每餐健康檢測</h1>
+        <p>請輸入今天吃的食物（可輸入多個，例如：雞胸肉 白飯 牛奶）</p>
+
+        <form method="POST">
+
+            <label>早餐</label>
+            <textarea name="breakfast" rows="3"
+                placeholder="例如：雞胸肉 白飯 牛奶"></textarea>
+
+            <label>午餐</label>
+            <textarea name="lunch" rows="3"
+                placeholder="例如：炸雞 可樂"></textarea>
+
+            <label>晚餐</label>
+            <textarea name="dinner" rows="3"
+                placeholder="例如：青菜 水果"></textarea>
+
+            <button type="submit">開始分析</button>
+
+        </form>
+
+        {% if result %}
+
+        <div class="result">
+
+            <h2>分析結果</h2>
+
+            <h3>健康分數</h3>
+
+            <div class="score">
+                {{ result.score }} / 100
+            </div>
+
+            <div class="level">
+                {{ result.level }}
+            </div>
+
+            <hr>
+
+            <h3>健康食物</h3>
+
+            {% if result.healthy %}
+            <ul>
+                {% for food in result.healthy %}
+                <li>✅ {{ food }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>沒有偵測到健康食物。</p>
+            {% endif %}
+
+            <h3>較不健康食物</h3>
+
+            {% if result.unhealthy %}
+            <ul>
+                {% for food in result.unhealthy %}
+                <li>❌ {{ food }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>沒有偵測到較不健康食物。</p>
+            {% endif %}
+
+            <hr>
+
+            <h3>建議</h3>
+
+            <p class="advice">
+                {{ advice }}
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>
